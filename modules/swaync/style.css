@@ -1,0 +1,292 @@
+/* import colors */
+@import url('file:///home/poppe/.cache/wal/colors-waybar.css');
+
+* {
+    /*--background:#000007;
+    --foreground:#efc3e4;
+    --cursor:#efc3e4;
+
+    --color0: #000007;
+    --color1: #03576B;
+    --color2: #53586C;
+    --color3: #315DA0;
+    --color4: #A11197;
+    --color1: #DE42D3;
+    --color6: #3EA1B0;
+    --color7: #efc3e4;
+    --color8: #a7889f;
+    --color9: #03576B;
+    --color10: #53586C;
+    --color11: #315DA0;
+    --color12: #A11197;
+    --color13: #DE42D3;
+    --color14: #3EA1B0;
+    --color15: #efc3e4;*/
+
+	font-family: "Iosevka Nerd Font";
+	font-size: 20px;
+    font-weight: bolder;
+}
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+    opacity: 0.9;
+    background: @color0;
+}
+.notification-row {
+    outline: none;
+    margin: 10px;
+    padding: 0;
+}
+.notification {
+    background: transparent;
+    padding: 0;
+    margin: 0px;
+    border: 0px solid @color1; 
+}
+.notification-content {
+    background: @color0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid @color1; 
+    margin: 0;
+
+}
+.notification-default-action {
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+}
+.close-button {
+    background: @color2; /*@color2;*/
+    color: @color0; /*@color0;*/
+    text-shadow: none;
+    padding: 0;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.close-button:hover {
+    box-shadow: none;
+    background: @color1; /* @color1;*/
+    transition: all .15s ease-in-out;
+    border: none
+}
+.notification-action {
+    border: 2px solid @color1; /* @color1;*/
+    border-top: none;
+    border-radius: 5px;
+}
+.notification-default-action:hover,
+.notification-action:hover {
+    color: @color1; /* @color1;*/ 
+    background: @color1; /* @color1;*/ 
+}
+.notification-default-action {
+    border-radius: 5px;
+    margin: 0px;
+}
+.notification-default-action:not(:only-child) {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px
+}
+.notification-action:first-child {
+    border-bottom-left-radius: 10px;
+    background: @background;
+}
+.notification-action:last-child {
+    border-bottom-right-radius: 10px;
+    background: @background;
+}
+.inline-reply {
+    margin-top: 8px
+}
+.inline-reply-entry {
+    background: @background;
+    color: @color7; /*@color7);*/
+    caret-color: @color7; /*@color7);*/ 
+    border: 1px solid @color7; /*#${palette.base09};*/ 
+    border-radius: 5px
+}
+
+.inline-reply-button {
+    margin-left: 4px;
+    background: @background;
+    border: 1px solid @color7; /*#${palette.base09};*/ 
+    border-radius: 5px;
+    color: @color7; /*@color7);*/
+}
+.inline-reply-button:disabled {
+    background: initial;
+    color: @color3; /*#${palette.base03};*/
+    border: 1px solid transparent
+}
+.inline-reply-button:hover {
+    background: @background;
+}
+.body-image {
+    margin-top: 6px;
+    background-color: @color7; /*@color7;*/
+    border-radius: 5px
+}
+.summary {
+    font-size: 16px;
+    font-weight: 700;
+    background: transparent;
+    color: rgba(158, 206, 106, 1);
+    text-shadow: none
+}
+.time {
+    font-size: 16px;
+    font-weight: 700;
+    background: transparent;
+    color: @color7; /*@color7);*/
+    text-shadow: none;
+    margin-right: 18px
+}
+.body {
+    font-size: 15px;
+    font-weight: 400;
+    background: transparent;
+    color: @color7; /*@color7);*/
+    text-shadow: none
+}
+.control-center {
+    background: @background;
+    border: 2px solid @color2; /*#${palette.base0C};*/
+    border-radius: 5px;
+}
+.control-center-list {
+    background: transparent
+}
+.control-center-list-placeholder {
+    opacity: .5
+}
+.floating-notifications {
+    background: transparent
+}
+.blank-window {
+    background: alpha(black, 0)
+
+}
+.widget-title {
+    color: @color1; /* @color1);*/
+    background: @background;
+    padding: 5px 10px;
+    margin: 10px 10px 5px 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+.widget-title>button {
+    font-size: 1rem;
+    color: @color1; /*@color7);*/
+    text-shadow: none;
+    background: @color0;
+    box-shadow: none;
+    border-radius: 5px;
+	border: 2px solid @color1;
+}
+.widget-title>button:hover {
+    background: @color6; /*@color2);*/
+	border: 2px solid @color1;
+    color: @background;
+}
+.widget-dnd {
+    background: @color0;
+    padding: 5px 10px;
+    margin: 10px 10px 5px 10px;
+	border: 2px solid @color1;
+    border-radius: 5px;
+    font-size: large;
+    color: @color1; /* @color1;*/
+}
+.widget-dnd>switch {
+    border-radius: 5px;
+    border: 1px solid @color1;
+    background: @color0;
+}
+.widget-dnd>switch:checked {
+    background: @color1;
+    border: 1px solid @color0;
+}
+.widget-dnd>switch slider {
+    background: @color1;
+    border-radius: 5px
+}
+.widget-dnd>switch:checked slider {
+    background: @color6;
+    border-radius: 5px
+}
+.widget-label {
+    margin: 10px 10px 5px 10px;
+}
+.widget-label>label {
+    font-size: 1rem;
+    color: @color6;
+}
+.widget-mpris {
+    color: @color1;
+    background: @color0;
+    padding: 5px;
+    margin: 10px 10px 5px 10px;
+    border-radius: 5px;
+	border: 2px solid @color1;
+}
+.widget-mpris > box > button {
+    border-radius: 5px;
+}
+.widget-mpris-player {
+    padding: 5px 5px;
+    margin: 10px;
+}
+.widget-mpris-title {
+    font-weight: 700;
+    font-size: 1.25rem
+}
+.widget-mpris-subtitle {
+    font-size: 1.1rem
+}
+.widget-buttons-grid {
+    font-size: x-large;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+    background: @color0;
+	border: 2px solid @color1;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button {
+    margin: 3px;
+    background: @color0;
+    border-radius: 5px;
+    color: @color1;
+	border: 2px solid @color1;
+}
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+    color: @color1;
+    background: @color6; /*@color2);*/
+	border: 2px solid @color1;
+}
+.widget-menubar>box>.menu-button-bar>button {
+    background: transparent
+}
+.topbar-buttons>button {
+    background: transparent
+}
+.widget-volume {
+    background: @color0;
+    padding: 5px;
+    margin: 10px 10px 5px 10px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: @color1;
+	border: 2px solid @color1;
+}
+.widget-volume>box>button {
+    background: @color1;
+    border: none
+}
+.per-app-volume {
+    background-color: @color0;
+    padding: 4px 8px 8px;
+    margin: 0 8px 8px;
+    border-radius: 5px;
+}

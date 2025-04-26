@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   imports = [
     ./modules/git.nix
     ./modules/fzf.nix
@@ -118,6 +117,12 @@
 
     ".config/wlogout".source = modules/wlogout;
     ".config/wlogout".recursive = true;
+
+    ".config/waybar".source = modules/waybar;
+    ".config/waybar".recursive = true;
+
+    ".config/swaync".source = modules/swaync;
+    ".config/swaync".recursive = true;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
