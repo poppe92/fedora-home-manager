@@ -17,8 +17,11 @@ mkdir ~/git
 sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils
 sudo dnf install dotnet-sdk-8.0
 sudo dnf copr enable yuezk/globalprotect-openconnect
+sudo dnf copr enable skidnik/clipmenu
+sudo dnf install clipmenu
 sudo dnf install globalprotect-openconnect
 flatpak install com.usebruno.Bruno 
+systemctl --user enable --now clipmenud
 ```
 
 Timeshift is for rollback possiblities, create backup after signing Nvidia drivers
@@ -73,6 +76,11 @@ docker run hello-world
 
 ## Install Nvidia (and sign my drivers)
 
+```url
+https://rpmfusion.org/Howto/NVIDIA
+https://rpmfusion.org/Howto/Secure%20Boot
+```
+
 ## Install Hyperland
 
 ```sh Install Hyperland with JaKoolIt
@@ -125,6 +133,16 @@ sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https:/
 sudo dnf install 1password
 ```
 
+### ClipSync, to sync xwayland and wayland copying
+
+```sh
+git clone https://github.com/alexankitty/clipsync.git
+cd clipsync
+./install.sh
+```
+
+This is then exec-once'd in Hyprland.conf
+
 ### Intellij
 
 Download the .tar.gz file from `https://www.jetbrains.com/idea/download/`
@@ -154,7 +172,7 @@ flatpak install flathub md.obsidian.Obsidian
 flatpak override --user --socket=wayland md.obsidian.Obsidian
 ```
 
-Or install AppImage, downloading the image, filter out arm64 version (the -v) flag
+Or install AppImage, downloading the image, filter out arm64 version (the -v) flag (to make git plugin work)
 
 ```sh
 wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | awk -F'"' '{print $4}' | wget -i -
