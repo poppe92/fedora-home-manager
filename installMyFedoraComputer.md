@@ -178,6 +178,12 @@ Or install AppImage, downloading the image, filter out arm64 version (the -v) fl
 wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | awk -F'"' '{print $4}' | wget -i -
 ```
 
+### Outlook-for-linux
+
+```sh
+wget -q -O - https://api.github.com/repos/mahmoudbahaa/outlook-for-linux/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | grep -v 'armv7' | awk -F'"' '{print $4}'
+```
+
 ### SSH Keygen for Github and DevOps
 
 ```url
