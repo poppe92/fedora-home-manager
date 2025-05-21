@@ -4,6 +4,16 @@
 
 ### Install Microsoft Intune for managing computer
 
+Go to `https://learn.microsoft.com/en-us/intune/intune-service/user-help/microsoft-intune-app-linux` and run commands for RHEL, 
+note that config-manager needs `dnf4` so the add-repo command is:
+
+```sh
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo dnf4 config-manager --add-repo https://packages.microsoft.com/yumrepos/microsoft-rhel9.0-prod
+```
+
+if using fedora >= 41
+
 ### Fix Sound 9i Pro
 
 ```url
@@ -21,6 +31,7 @@ sudo dnf copr enable skidnik/clipmenu
 sudo dnf install clipmenu
 sudo dnf install globalprotect-openconnect
 flatpak install com.usebruno.Bruno 
+flatpak install flathub com.spotify.Client
 systemctl --user enable --now clipmenud
 ```
 
@@ -45,6 +56,12 @@ sudoedit /etc/systemd/resolved.conf
 ```conf
 [Resolve]
 DNS=8.8.8.8 8.8.4.4
+```
+
+### Set Hostname
+
+```sh
+sudo hostnamectl set-hostname "jesper-fedora"
 ```
 
 ### Get AppImageLauncher
@@ -133,6 +150,13 @@ sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https:/
 sudo dnf install 1password
 ```
 
+This is for getting flatpak versions of browsers to sync with the installed version,
+works with firefox. This is used by chmod +x on the script and runnning it.
+
+```sh
+git clone https://github.com/FlyinPancake/1password-flatpak-browser-integration.git
+```
+
 ### ClipSync, to sync xwayland and wayland copying
 
 ```sh
@@ -153,6 +177,12 @@ Download the .tar.gz file from `https://www.jetbrains.com/idea/download/`
 
 ```sh
 flatpak install slack
+```
+
+### Zen
+
+```sh
+flatpak install flathub app.zen_browser.zen
 ```
 
 ### Teams
@@ -180,8 +210,16 @@ wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/
 
 ### Outlook-for-linux
 
+For appimage:
+
 ```sh
 wget -q -O - https://api.github.com/repos/mahmoudbahaa/outlook-for-linux/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | grep -v 'armv7' | awk -F'"' '{print $4}'
+```
+
+For rpm package:
+
+```sh
+wget -q -O - https://api.github.com/repos/mahmoudbahaa/outlook-for-linux/releases/latest | grep 'AppImage"$' | grep -v 'aarch' | grep -v 'armv7' | awk -F'"' '{print $4}' | wget -i -
 ```
 
 ### SSH Keygen for Github and DevOps
@@ -195,3 +233,8 @@ https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generati
 ```sh
 az install bicep
 ```
+
+### Global protect
+
+Go to this page and get the rpm file:
+`https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1420`
