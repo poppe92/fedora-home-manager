@@ -24,12 +24,13 @@ https://github.com/maximmaxim345/yoga_pro_9i_gen9_linux
 
 ```sh
 mkdir ~/git
-sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils
+sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils lxpolkit
 sudo dnf install dotnet-sdk-8.0
 sudo dnf copr enable yuezk/globalprotect-openconnect
 sudo dnf copr enable skidnik/clipmenu
 sudo dnf install clipmenu
-sudo dnf install globalprotect-openconnect
+sudo dnf install globalprotect-openconnect discord xclip xsel seahorse gnome-keyring i2c-tools nmtui 
+sudo dnf install magic-wormhole golang
 flatpak install com.usebruno.Bruno 
 flatpak install flathub com.spotify.Client
 systemctl --user enable --now clipmenud
@@ -184,6 +185,9 @@ flatpak install slack
 ```sh
 flatpak install flathub app.zen_browser.zen
 ```
+
+To change zen to default browser:
+`xdg-settings set default-web-browser app.zen_browser.zen.desktop`
 
 ### Teams
 
