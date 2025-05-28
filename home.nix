@@ -62,7 +62,6 @@
     # git
     nil # Language server for Nix
     alejandra # Nix Formatter for Neovim
-    python3
     jq
     fx
     quarkus
