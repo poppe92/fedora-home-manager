@@ -10,9 +10,17 @@ note that config-manager needs `dnf4` so the add-repo command is:
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo dnf4 config-manager --add-repo https://packages.microsoft.com/yumrepos/microsoft-rhel9.0-prod
+sudo dnf install --releasever=41 java-11-openjdk 
 ```
 
-if using fedora >= 41
+After that you need to run this to install java-11-openjdk (its not supported after fedora 41)
+
+`sudo dnf install --releasever=41 java-11-openjdk`
+
+Then you can install the intune-portal
+
+`sudo dnf install intune-portal`
+
 
 ### Fix Sound 9i Pro
 
