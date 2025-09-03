@@ -38,7 +38,7 @@ systemctl --user enable --now clipmenud
 
 Timeshift is for rollback possiblities, create backup after signing Nvidia drivers
 
-## Install VS-Code
+### Install VS-Code
 
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -46,6 +46,8 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 dnf check-update
 sudo dnf install code
 ```
+
+### Install Dbeaver
 
 ```sh
 wget https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
