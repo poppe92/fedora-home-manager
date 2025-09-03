@@ -131,17 +131,19 @@ sh -s -- install --determinate
 
 ### Install Home Manager
 
-```sh Install Home-manager
+
+`https://www.chrisportela.com/posts/home-manager-flake/`
+
+```sh
+`nix build .#homeConfiguration."jesper".activationPackage` # Should be run first time, when building the Home manager result
+`./result/activate` # will activate that build
+`home-manager {build|switch} --flake .` # should be used when result is activated, easier to type, will be the same command in the background
+```
+
+```sh Install Home-manager (Depricated by Determinate, should now use flake instead)
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
-```
-
-```sh
 nix-shell '<home-manager>' -A install
-```
-
-```sh
-home-manager build -f home.nix
 ```
 
 ### Set zsh as default shell
