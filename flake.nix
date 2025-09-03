@@ -21,7 +21,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
     in {
-        homeConfiguration = {
+        homeConfigurations = {
             "jesper" = home-manager.lib.homeManagerConfiguration {
 		inherit pkgs;
                 modules = [ ./home.nix ]; # Defined later
