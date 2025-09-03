@@ -126,7 +126,7 @@
 	},
 	"custom/power": {
 		"format": "",
-		"on-click": "wlogout --css /home/poppe/git/.dotfiles/modules/wlogout/style.css -l /home/poppe/git/.dotfiles/modules/wlogout/layout"
+		"on-click": "wlogout --css /home/poppe/git/fedora-home-manager/modules/wlogout/style.css -l /home/poppe/git/fedora-home-manager/modules/wlogout/layout"
 	}
 }
 
