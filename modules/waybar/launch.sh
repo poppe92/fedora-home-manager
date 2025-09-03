@@ -2,7 +2,7 @@
 pkill waybar
 
 if [[ $USER = "jesper" ]]; then
-	waybar -c /home/jesper/git/.dotfiles/modules/waybar/config & -s /home/jesper/git/.dotfiles/modules/waybar/style.css &
+	waybar -c /home/jesper/git/fedora-home-manager/modules/waybar/config & -s /home/jesper/git/fedora-home-manager/modules/waybar/style.css &
 else
 	waybar &
 fi

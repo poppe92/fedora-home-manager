@@ -1,6 +1,6 @@
 # Setup Work computer on Linux
 
-## Install Fedora Workstation (or Ubuntu if Microsoft Intune Works there)
+## Install Fedora Workstation 
 
 ### Install Microsoft Intune for managing computer
 
@@ -41,7 +41,15 @@ sudo dnf install globalprotect-openconnect discord xclip xsel seahorse gnome-key
 sudo dnf install magic-wormhole golang
 flatpak install com.usebruno.Bruno 
 flatpak install flathub com.spotify.Client
+flatpak install slack
+flatpak install flathub app.zen_browser.zen
+xdg-settings set default-web-browser app.zen_browser.zen.desktop
 systemctl --user enable --now clipmenud
+```
+
+```sh
+git clone git@github.com:poppe92/obsidianNotes.git
+git clone git@github.com:poppe92/.dotfiles
 ```
 
 Timeshift is for rollback possiblities, create backup after signing Nvidia drivers
@@ -131,6 +139,7 @@ sh -s -- install --determinate
 
 ### Install Home Manager
 
+This site has great info on creating a flake for home-manager
 
 `https://www.chrisportela.com/posts/home-manager-flake/`
 
@@ -188,20 +197,6 @@ Download the .tar.gz file from `https://www.jetbrains.com/idea/download/`
 `sudo tar -xzf ideaIU-*.tar.gz -C /opt`
 `./opt/bin/{path}/idea.sh`
 
-### Slack
-
-```sh
-flatpak install slack
-```
-
-### Zen
-
-```sh
-flatpak install flathub app.zen_browser.zen
-```
-
-To change zen to default browser:
-`xdg-settings set default-web-browser app.zen_browser.zen.desktop`
 
 ### Teams
 
@@ -223,12 +218,12 @@ flatpak override --user --socket=wayland md.obsidian.Obsidian
 Or install AppImage, downloading the image, filter out arm64 version (the -v) flag (to make git plugin work)
 
 ```sh
+mkdir ~/.local/bin
 wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | awk -F'"' '{print $4}' | wget -i -
+chmod a+x ./Obsidian*
+mv Obidian-* ~/.local/bin/Obsidian.AppImage
 ```
 
-```sh
-sudo dnf install ./obsidian
-```
 
 ### Outlook-for-linux
 

@@ -13,7 +13,7 @@
       timestr = "%R";
       datestr = "%a, %d-%b, w: %-W";
 
-      image = "/home/jesper/git/.dotfiles/neon-astronaut.jpg";
+      image = "/home/jesper/git/fedora-home-manager/images/neon-astronaut.jpg";
 
       # Settings for Indicator
       indicator = true;

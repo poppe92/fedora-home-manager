@@ -10,7 +10,7 @@
     settings = {
       background = {
         monitor = "";
-        path = "/home/jesper/git/.dotfiles/neon-astronaut.jpg";
+        path = "/home/jesper/git/fedora-home-manager/images/neon-astronaut.jpg";
         blur_passes = 1; # 0 disables blurring
         blur_size = 7;
         noise = 1.17e-2;
