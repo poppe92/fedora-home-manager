@@ -218,12 +218,9 @@ flatpak override --user --socket=wayland md.obsidian.Obsidian
 Or install AppImage, downloading the image, filter out arm64 version (the -v) flag (to make git plugin work)
 
 ```sh
-mkdir ~/.local/bin
 wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | awk -F'"' '{print $4}' | wget -i -
-chmod a+x ./Obsidian*
-mv Obidian-* ~/.local/bin/Obsidian.AppImage
+./~/git/fedora-home-manager/scripts/appimage-desktop-entry.sh Obsidian*
 ```
-
 
 ### Outlook-for-linux
 
