@@ -206,11 +206,11 @@ To change zen to default browser:
 ### Teams
 
 ```sh
-curl -1sLf -o /tmp/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
-sudo rpm --import /tmp/teams-for-linux.asc
-rm -f /tmp/teams-for-linux.asc
-sudo curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforlinux.de/rpm/teams-for-linux.repo
-sudo yum update && sudo yum install teams-for-linux
+wget -q -O - https://api.github.com/repos/IsmaelMartinez/teams-for-linux/releases/latest | grep 'rpm"$' | grep -v 'aarch' | grep -v 'armv7' | awk -F'"' '{print $4}' | wget -i -
+```
+
+```sh
+sudo dnf install ./teams-for-linux
 ```
 
 ### Obsidian
@@ -226,6 +226,10 @@ Or install AppImage, downloading the image, filter out arm64 version (the -v) fl
 wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest | grep 'AppImage"$' | grep -v 'arm64' | awk -F'"' '{print $4}' | wget -i -
 ```
 
+```sh
+sudo dnf install ./obsidian
+```
+
 ### Outlook-for-linux
 
 For appimage:
@@ -237,7 +241,11 @@ wget -q -O - https://api.github.com/repos/mahmoudbahaa/outlook-for-linux/release
 For rpm package:
 
 ```sh
-wget -q -O - https://api.github.com/repos/mahmoudbahaa/outlook-for-linux/releases/latest | grep 'AppImage"$' | grep -v 'aarch' | grep -v 'armv7' | awk -F'"' '{print $4}' | wget -i -
+wget -q -O - https://api.github.com/repos/mahmoudbahaa/outlook-for-linux/releases/latest | grep 'rpm"$' | grep -v 'aarch' | grep -v 'armv7' | awk -F'"' '{print $4}' | wget -i -
+```
+
+```sh
+sudo dnf install ./outlook-for-linux
 ```
 
 ### SSH Keygen for Github and DevOps
