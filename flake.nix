@@ -24,7 +24,7 @@
         homeConfigurations = {
             "jesper" = home-manager.lib.homeManagerConfiguration {
 		inherit pkgs;
-                modules = [ ./home.nix ]; # Defined later
+                modules = [ ./home.nix ]; 
             };
         };
     };

@@ -32,7 +32,7 @@ https://github.com/maximmaxim345/yoga_pro_9i_gen9_linux
 
 ```sh
 mkdir ~/git
-sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils lxpolkit
+sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils lxpolkit blueman
 sudo dnf install dotnet-sdk-8.0
 sudo dnf copr enable yuezk/globalprotect-openconnect
 sudo dnf copr enable skidnik/clipmenu
@@ -132,6 +132,8 @@ chmod +x install.sh
 
 ### Install Nix Packagemanager
 
+I use Determinate Nix for easy install: `https://docs.determinate.systems/`
+
 ```sh Install Nix Determinate for SELinux
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix|\
 sh -s -- install --determinate
@@ -196,6 +198,11 @@ This is then exec-once'd in Hyprland.conf
 Download the .tar.gz file from `https://www.jetbrains.com/idea/download/`
 `sudo tar -xzf ideaIU-*.tar.gz -C /opt`
 `./opt/bin/{path}/idea.sh`
+
+
+Toolbox
+installed desktopfiles end up in `~/.local/share/applications/toolbox.desktop`
+
 
 
 ### Teams
