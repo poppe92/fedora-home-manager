@@ -86,11 +86,13 @@
     cowsay
     fortune
 
+
     # Build Tools
+    
     maven
-    (azure-cli.withExtensions [
-      azure-cli.extensions.azure-devops
-    ])
+    #(azure-cli.withExtensions [
+    #  azure-cli.extensions.azure-devops
+    #])
     nodejs
     yarn
     magic-wormhole

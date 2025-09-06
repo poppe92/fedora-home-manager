@@ -32,7 +32,7 @@ https://github.com/maximmaxim345/yoga_pro_9i_gen9_linux
 
 ```sh
 mkdir ~/git
-sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils lxpolkit blueman
+sudo dnf install thunderbird swaylock timeshift hyprlock golang hyprshot evolution evolution-ews desktop-file-utils lxpolkit blueman azure-cli
 sudo dnf install dotnet-sdk-8.0
 sudo dnf copr enable yuezk/globalprotect-openconnect
 sudo dnf copr enable skidnik/clipmenu
