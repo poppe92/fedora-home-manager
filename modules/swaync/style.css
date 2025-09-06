@@ -1,30 +1,27 @@
-/* import colors */
-@import url('file:///home/poppe/.cache/wal/colors-waybar.css');
+/* Define Colors */
+@define-color background #000007;
+@define-color foreground #efc3e4;
+@define-color cursor #efc3e4;
+@define-color color0 #000007;
+@define-color color1 #03576B;
+@define-color color2 #53586C;
+@define-color color3 #315DA0;
+@define-color color4 #A11197;
+@define-color color5 #DE42D3;
+@define-color color6 #3EA1B0;
+@define-color color7 #efc3e4;
+@define-color color8 #a7889f;
+@define-color color9 #03576B;
+@define-color color10 #53586C;
+@define-color color11 #315DA0;
+@define-color color12 #A11197;
+@define-color color13 #DE42D3;
+@define-color color14 #3EA1B0;
+@define-color color15 #efc3e4;
 
 * {
-    /*--background:#000007;
-    --foreground:#efc3e4;
-    --cursor:#efc3e4;
-
-    --color0: #000007;
-    --color1: #03576B;
-    --color2: #53586C;
-    --color3: #315DA0;
-    --color4: #A11197;
-    --color1: #DE42D3;
-    --color6: #3EA1B0;
-    --color7: #efc3e4;
-    --color8: #a7889f;
-    --color9: #03576B;
-    --color10: #53586C;
-    --color11: #315DA0;
-    --color12: #A11197;
-    --color13: #DE42D3;
-    --color14: #3EA1B0;
-    --color15: #efc3e4;*/
-
-	font-family: "Iosevka Nerd Font";
-	font-size: 20px;
+    font-family: "Iosevka Nerd Font";
+    font-size: 20px;
     font-weight: bolder;
 }
 .control-center .notification-row:focus,
