@@ -13,6 +13,7 @@
     ./modules/rofi.nix
 
     ## Hyprland things (Not working atm)
+    ./modules/hyprlock.nix
     #./modules/hyprland.nix
     #./modules/hyprlock.nix
   ];
@@ -113,7 +114,7 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     ".config/hypr/hyprland.conf".source = modules/hyprland.conf;
-    ".config/hypr/hyprlock.conf".source = modules/hyprlock.conf;
+		#".config/hypr/hyprlock.conf".source = modules/hyprlock.conf;
     ".config/hypr/hypridle.conf".source = modules/hypridle.conf;
 
     ".config/wlogout".source = modules/wlogout;
@@ -161,6 +162,18 @@
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui.theme = {
+        lightTheme = true;
+        activeBorderColor = [ "blue" "bold" ];
+        inactiveBorderColor = [ "black" ];
+        selectedLineBgColor = [ "default" ];
+      };
+    };
   };
 
   # Enable Java

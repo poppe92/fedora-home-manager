@@ -1,58 +1,81 @@
 {
   pkgs,
   ...
-}: 
-{
-  programs.hyprlock = {
-#    enable = true;
-    package = pkgs.hyprlock;
+}: { 
+programs.hyprlock = {
+	enable = true;
+	package = pkgs.hyprlock;
 
-    settings = {
-      background = {
-        monitor = "";
-        path = "/home/jesper/git/fedora-home-manager/images/neon-astronaut.jpg";
-        blur_passes = 1; # 0 disables blurring
-        blur_size = 7;
-        noise = 1.17e-2;
-      };
+	settings = {
+		background = [
+			{
+				monitor = "";
+				blur_passes = 1;
+				blur_size = 7;
+				noise = 1.17e-2;
+				path="/home/jesper/git/fedora-home-manager/images/neon-astronaut.jpg";
+			}
+		];
 
-      label = {
-#        text = "$TIME";
-#        color = "rgba(242, 243, 244, 0.75)";
-#        position = "0, 150";
-#        halign = "center";
-#        valign = "center";
-      };
+		image = [
+			{
+				monitor = "";
+				path = "/home/jesper/git/fedora-home-manager/images/jesperProfilePicture.png";
+				position = "0, 50";
+				halign = "center";
+				valign = "center";
+			}
+		];
+	
+		input-field = [
+			{
+				monitor="";
+				size="200,50";
+				check_color="rgb(30, 107, 204)";
+				dots_center=true;
+				dots_size=0.200000;
+				dots_spacing=0.350000;
+				fade_on_empty=false;
+				font_color="rgb(111, 45, 104)";
+				halign="center";
+				hide_input=false;
+				inner_color="rgba(0, 0, 0, 0.2)";
+				outer_color="rgba(0, 0, 0, 0)";
+				outline_thickness=2;
+				placeholder_text="<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
+				position="0, -100";
+				rounding=-1;
+				valign="center";
+			}
+		];
 
-      image = {
-#        monitor = "DP-3";
-#        path = "/home/jesper/git/.dotfiles/jesperProfilePicture.png";
-#        size = "150";
-#        position = "0, 200";
-#        halign = "center";
-#        valign = "center";
-      };
+		label = [
+			# Current Time
+			{
+				monitor="";
+				text="$TIME";
+				color="rgba(242, 243, 244, 0.75)";
+				font_family="JetBrains Mono";
+				font_size=95;
+				halign="center";
+				position="0, 300";
+				valign="center";
+			}
+			# User
+			{
+				monitor="";
+				color="rgba(242, 243, 244, 0.75)";
+				font_family="JetBrains Mono";
+				font_size=22;
+				text=''cmd[update:1000] echo $(date +\"%A, %B %d\")'';
+				halign="center";
+				position="0, 200";
+				valign="center";
 
-      input-field = {
-#        monitor = "DP-3";
-#        outline_thickness = 2;
-#        dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
-#        dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
-#        dots_fade_time = 200;
-#        dots_center = true;
-#        outer_color = "rgba(0, 0, 0, 0)";
-#        inner_color = "rgba(0, 0, 0, 0.2)";
-#        font_color = "rgb(111, 45, 104)";
-#        fade_on_empty = false;
-#        rounding = -1;
-#        check_color = "rgb(30, 107, 204)";
-#        placeholder_text = ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
-#        hide_input = false;
-#        position = "0, -20";
-#        halign = "center";
-#        valign = "center";
-      };
-    };
-  };
+			}
+		];
+
+	};
+};
 }
 

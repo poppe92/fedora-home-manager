@@ -85,6 +85,17 @@ DNS=8.8.8.8 8.8.4.4
 sudo hostnamectl set-hostname "jesper-fedora"
 ```
 
+### Update Zen Browser to not blur text
+
+Change these setting values in `about:config`:
+
+```config
+zen.view.experimental-rounded-view=false
+gfx.font_rendering.cleartype_params.rendering_mode = 5
+gfx.font_rendering.cleartype_params.enhanced_contrast = 1 
+
+```
+
 ### Get AppImageLauncher
 
 ```url
