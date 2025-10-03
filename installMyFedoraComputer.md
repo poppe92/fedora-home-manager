@@ -93,7 +93,13 @@ Change these setting values in `about:config`:
 zen.view.experimental-rounded-view=false
 gfx.font_rendering.cleartype_params.rendering_mode = 5
 gfx.font_rendering.cleartype_params.enhanced_contrast = 1 
+```
 
+New info, flatpak has memory leaks, use this copr instead:
+
+```sh
+sudo dnf copr enable sneexy/zen-browser
+sudo dnf install zen-browser
 ```
 
 ### Get AppImageLauncher
@@ -274,3 +280,4 @@ az install bicep
 
 Go to this page and get the rpm file:
 `https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1420`
+
