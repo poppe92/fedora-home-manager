@@ -1,0 +1,5 @@
+{
+  "disableNotifications": false,
+  "enableIncomingCallToast": true,
+  "awayOnSystemIdle": false,
+}

@@ -126,6 +126,8 @@
     ".config/swaync".source = modules/swaync;
     ".config/swaync".recursive = true;
 
+    ".config/teams-for-linux/config.json".source = modules/teams-for-linux/config.json;
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose

@@ -42,8 +42,6 @@ sudo dnf install magic-wormhole golang
 flatpak install com.usebruno.Bruno 
 flatpak install flathub com.spotify.Client
 flatpak install slack
-flatpak install flathub app.zen_browser.zen
-xdg-settings set default-web-browser app.zen_browser.zen.desktop
 systemctl --user enable --now clipmenud
 ```
 
@@ -100,6 +98,14 @@ New info, flatpak has memory leaks, use this copr instead:
 ```sh
 sudo dnf copr enable sneexy/zen-browser
 sudo dnf install zen-browser
+xdg-settings set default-web-browser app.zen_browser.zen.desktop
+```
+
+Add zen as allowed browser for 1password (see: https://docs.zen-browser.app/guides/1password)
+
+```sh
+sudo touch /etc/1password/custom_allowed_browsers
+echo "zen-bin" | sudo tee -a /etc/1password/custom_allowed_browsers
 ```
 
 ### Get AppImageLauncher
