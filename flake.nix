@@ -7,10 +7,11 @@
   inputs = {
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/*";
 
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
-
+    # Use GitHub URLs instead of FlakeHub
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
