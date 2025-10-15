@@ -129,7 +129,7 @@
       };
 
       "#inputbar" = {
-        background-image = mkLiteral "url(\"~/git/fedora-home-manager/neon-astronaut.jpg\", width)";
+        background-image = mkLiteral "url(\"~/git/fedora-home-manager/images/neon-astronaut.jpg\", width)";
         padding = mkLiteral "200 0 0";
         margin = mkLiteral "0 0 0 0";
       };
