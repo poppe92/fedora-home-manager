@@ -119,7 +119,7 @@
         # Build a clipboard-friendly command string (quote names)
         local extra_args_str="''${(j: :)extra_args}"
         local clip_cmd="az containerapp logs show -g '$resource_group' -n '$app_name' --format text --type console ''${extra_args_str}"
-        echo "$clip_cmd" | xclip -selection clipboard
+        echo "$clip_cmd" | wl-copy -selection clipboard
         echo "-- copied logs cmd to Clipboard"
         echo "Starting log stream... (Press Ctrl+C to stop)"
         echo ""
