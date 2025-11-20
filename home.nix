@@ -114,7 +114,21 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     ".config/hypr/hyprland.conf".source = modules/hyprland.conf;
-		#".config/hypr/hyprlock.conf".source = modules/hyprlock.conf;
+    ".local/bin/rofi-drun" = {
+      executable = true;
+      text = ''
+        #!/bin/bash -i
+        exec rofi -show drun
+      '';
+    };
+    ".local/bin/rofi-calc" = {
+      executable = true;
+      text = ''
+        #!/bin/bash -i
+        exec rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | wl-copy"
+       '';
+    };
+    #".config/hypr/hyprlock.conf".source = modules/hyprlock.conf;
     ".config/hypr/hypridle.conf".source = modules/hypridle.conf;
 
     ".config/wlogout".source = modules/wlogout;
@@ -181,7 +195,7 @@
   # Enable Java
   programs.java = {
     enable = true;
-    package = pkgs.jdk25;
+    package = pkgs.zulu25;
   };
 
 #  xdg = {

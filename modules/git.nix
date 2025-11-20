@@ -14,23 +14,26 @@
         autoSetupRemote = true;
       };
       init = {
-	defaultBranch ="main";
+        defaultBranch ="main";
       };
       merge = {
-	conflictstyle = "diff3";
+        conflictstyle = "diff3";
       };
       diff = {
         colorMoved = "default";
+      };
+      status = {
+        relativePaths = false;
       };
     };
 
     delta = {
       enable = true;
       options = {
-	whitespace-error-style = "22 reverse";
-	side-by-side = true;
-	navigate = true;
-	line-numbers = true;
+        whitespace-error-style = "22 reverse";
+        side-by-side = true;
+        navigate = true;
+        line-numbers = true;
       };
     };
 

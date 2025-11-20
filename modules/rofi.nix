@@ -10,14 +10,15 @@
 
 #    theme = "simple-tokyonight.rasi";
 
-    plugins = [ 
-      pkgs.rofi-emoji 
-      pkgs.rofi-calc
-      pkgs.rofi-power-menu
+    plugins = with pkgs; [ 
+      rofi-emoji 
+      rofi-calc
+      rofi-power-menu
     ];
 
+    modes = [ "drun" "calc" ];
+
     extraConfig = { 
-      modi = "drun";#,emoji
       show-icons = true;
       sort = true;
       icon-theme = "Papirus";
