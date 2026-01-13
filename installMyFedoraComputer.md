@@ -286,3 +286,11 @@ az install bicep
 
 Go to this page and get the rpm file:
 `https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1420`
+
+
+### Hyprland Polkit
+
+To get a graphical polycykit authentication agent to work in hyprland, follow this guide: 
+`https://elvinguti.dev/posts/fix-missing-polkit/`
+
+The exec-once is already added in my hyprland config file.
