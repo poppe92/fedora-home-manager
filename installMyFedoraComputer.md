@@ -286,4 +286,3 @@ az install bicep
 
 Go to this page and get the rpm file:
 `https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1420`
-

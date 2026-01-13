@@ -6,9 +6,9 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ls = "eza --icons=auto --color=auto";
+      ls = "eza --sort newest --icons=auto --color=auto";
       lst = "eza --tree --icons=auto --color=auto";
-      ll = "eza -lah --icons=auto --color=auto";
+      ll = "eza -lah --sort newest --icons=auto --color=auto";
       cat = "bat --theme Dracula";
       whatsmypublicip = "curl -4L myip.0xa.se";
       vim = "nvim";
