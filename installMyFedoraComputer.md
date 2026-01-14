@@ -151,6 +151,13 @@ chmod +x install.sh
 ./install.sh
 ```
 
+### Install Hyperland-per-window-layout
+
+Change keyboard layout per application, to make all developer applications use
+US layout and the rest SE layout. See: [Hyprland-per-window-layout](https://lib.rs/crates/hyprland-per-window-layout)
+
+`cargo install hyperland-per-window-layout`
+
 ## Install Nix
 
 ### Install Nix Packagemanager
