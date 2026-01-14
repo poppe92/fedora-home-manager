@@ -1,0 +1,17 @@
+# list of keyboards to operate on
+# use `hyprctl devices -j` to list all keyboards
+keyboards = [
+  "keychron-keychron-q10-max",
+]
+
+# layout_index => window classes list
+# use `hyprctl clients` to get class names
+[[default_layouts]]
+1 = [
+  "jetbrains-idea",
+  "kitty",
+  "code",
+  "jetbrains-studio",
+]
+
+
