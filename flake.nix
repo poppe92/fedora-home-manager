@@ -18,15 +18,15 @@
 
   # Flake outputs that other flakes can use
   outputs = { self, flake-schemas, nixpkgs, home-manager }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-    in {
-        homeConfigurations = {
-            "jesper" = home-manager.lib.homeManagerConfiguration {
-		inherit pkgs;
-                modules = [ ./home.nix ]; 
-            };
-        };
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+  in {
+    homeConfigurations = {
+      "jesper" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ]; 
+      };
     };
+  };
 }

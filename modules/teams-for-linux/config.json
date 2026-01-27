@@ -1,5 +1,7 @@
 {
   "disableNotifications": false,
   "enableIncomingCallToast": true,
-  "awayOnSystemIdle": false
+  "awayOnSystemIdle": false,
+  "notificationMethod": "electron",
+  "disableGpu": false
 }
