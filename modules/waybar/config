@@ -1,132 +1,132 @@
 {
-	"layer": "top",
-	"margin-top": 14,
+  "layer": "top",
+  "margin-top": 14,
 
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
-	"modules-center": ["clock", "custom/waybar-mpris"],
-	"modules-right": ["custom/notification", "pulseaudio", "bluetooth", "temperature", "memory", "battery", "network", "custom/power", "tray"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock", "custom/waybar-mpris"],
+  "modules-right": ["custom/notification", "pulseaudio", "bluetooth", "temperature", "memory", "battery", "network", "custom/power", "tray"],
 
-	"hyprland/window": {
-		"format": "{}",
-		"separate-outputs": true
-	},
-	"network": {
-		"format-wifi": "{essid} ({signalStrength}%) ",
-		"format-ethernet": "Connected ",
-		"format-disconnected": "Disconnected ⚠", 
-		"max-length": 50,
-		"on-click": "nm-connection-editor"
-	},
-	"tray": {
-		"spacing": 10
-	},
-	"clock": {
-		"interval": 5,
-		"format": "{:%H:%M:%S}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"weeks-pos": "left",
-			"format": {
-				"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-			}
-		},
-		"format-alt": "{:%Y-%m-%d}"
-	},
-	"cpu": {
-		"format": "{usage}% ",
-		"tooltip": false
-	},
-	"memory": {
-		"format": "{}% "
-	},
-	"temperature": {
-		"critical-threshold": 89,
-		"format-critical": "{temperatureC}°C {icon}",
-		"format": "{temperatureC}°C {icon}",
-		"format-icons": [""]
-	},
-	"battery": {
-	"states": {
-		// "good": 95,
-		"warning": 20,
-		"critical": 10
-		},
-		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",	
-		"format-plugged": "{capacity}% ",
-		"format-alt": "{time} {icon}",
-		"format-full": "",
-		"format-icons": ["", "", "", "", ""]
-	},
-	"bluetooth": {
-		"format": " {status}",
-		"format-connected": " {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-		// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-		"on-click": "blueman-manager"
-	},
-	"pulseaudio": {
-		"scroll-step": 1, // %, can be a float
-		"format": "{volume}% {icon} ",
-		"format-bluetooth": "{volume}% {icon}  {format_source}",
-		"format-bluetooth-muted": " {icon}  {format_source}",
-		"format-muted": "{volume}%  ",
-		"format-source": "{volume}% ",
-		"format-source-muted": "",
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["", "", ""]
-		},
-		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-		"on-click-right": "pavucontrol"
-	},
-	"custom/waybar-mpris": {
-		"return-type": "json",
-		"exec": "waybar-mpris --position --autofocus --pause  ",
-		"on-click": "waybar-mpris --send toggle",
-		// This option will switch between players on right click.
-		"on-click-right": "waybar-mpris --send player-next",
-		// The options below will switch the selected player on scroll
-		// "on-scroll-up": "waybar-mpris --send player-next",
-		//"on-scroll-down": "waybar-mpris --send player-prev",
-		// The options below will go to next/previous track on scroll
-		"on-scroll-up": "waybar-mpris --send next",
-		"on-scroll-down": "waybar-mpris --send prev",
-		"escape": true
-	},
-	"custom/notification": {
-		"tooltip": false,
-		"format": "{icon}",
-		"format-icons": {
-		"notification": " <span foreground='red'><sup></sup></span> ",
-		"none": "  ",
-		"dnd-notification": " <span foreground='red'><sup></sup></span> ",
-		"dnd-none": "  ",
-		"inhibited-notification": " <span foreground='red'><sup></sup></span> ",
-		"inhibited-none": "  ",
-		"dnd-inhibited-notification": " <span foreground='red'><sup></sup></span> ",
-		"dnd-inhibited-none": "  "
-	},
-	"return-type": "json",
-	"exec-if": "which swaync-client",
-	"exec": "swaync-client -swb",
-	"on-click": "swaync-client -t -sw",
-	 	"on-click-right": "swaync-client -d -sw",
-	 	"escape": true
-	},
-	"custom/power": {
-		"format": "",
-		"on-click": "wlogout --css /home/poppe/git/fedora-home-manager/modules/wlogout/style.css -l /home/poppe/git/fedora-home-manager/modules/wlogout/layout"
-	}
+  "hyprland/window": {
+    "format": "{}",
+    "separate-outputs": true
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "Connected ",
+    "format-disconnected": "Disconnected ⚠", 
+    "max-length": 50,
+    "on-click": "nm-connection-editor"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "interval": 5,
+    "format": "{:%H:%M:%S}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "weeks-pos": "left",
+      "format": {
+        "weeks": "<span color='#99ffdd'><b>W{:%W}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}% "
+  },
+  "temperature": {
+    "critical-threshold": 89,
+    "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": [""]
+  },
+  "battery": {
+  "states": {
+    // "good": 95,
+    "warning": 20,
+    "critical": 10
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ", 
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+  "pulseaudio": {
+    "scroll-step": 1, // %, can be a float
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": " {icon}  {format_source}",
+    "format-muted": "{volume}%  ",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "custom/waybar-mpris": {
+    "return-type": "json",
+    "exec": "waybar-mpris --position --autofocus --pause  ",
+    "on-click": "waybar-mpris --send toggle",
+    // This option will switch between players on right click.
+    "on-click-right": "waybar-mpris --send player-next",
+    // The options below will switch the selected player on scroll
+    // "on-scroll-up": "waybar-mpris --send player-next",
+    //"on-scroll-down": "waybar-mpris --send player-prev",
+    // The options below will go to next/previous track on scroll
+    "on-scroll-up": "waybar-mpris --send next",
+    "on-scroll-down": "waybar-mpris --send prev",
+    "escape": true
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+    "notification": " <span foreground='red'><sup></sup></span> ",
+    "none": "  ",
+    "dnd-notification": " <span foreground='red'><sup></sup></span> ",
+    "dnd-none": "  ",
+    "inhibited-notification": " <span foreground='red'><sup></sup></span> ",
+    "inhibited-none": "  ",
+    "dnd-inhibited-notification": " <span foreground='red'><sup></sup></span> ",
+    "dnd-inhibited-none": "  "
+  },
+  "return-type": "json",
+  "exec-if": "which swaync-client",
+  "exec": "swaync-client -swb",
+  "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "wlogout --css /home/jesper/git/fedora-home-manager/modules/wlogout/style.css -l /home/jesper/git/fedora-home-manager/modules/wlogout/layout"
+  }
 }
 
