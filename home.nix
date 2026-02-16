@@ -173,6 +173,7 @@
     #DISPLAY="${DISPLAY:-$(grep -Po '(?<=nameserver ).*' /etc/resolv.conf):0}";
     QUARKUS_PROFILE="dev";
     NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1;
+    PATH="/home/jesper/.opencode/bin:$PATH";
   };
 
   programs.direnv = {
@@ -185,10 +186,18 @@
     enable = true;
     settings = {
       gui.theme = {
-        lightTheme = true;
-        activeBorderColor = [ "blue" "bold" ];
-        inactiveBorderColor = [ "black" ];
-        selectedLineBgColor = [ "default" ];
+        activeBorderColor = [ "#FF79C6" "bold" ];
+        inactiveBorderColor = [ "#BD93F9" ];
+        searchingActiveBorderColor = [ "#8BE9FD" "bold" ];
+        optionsTextColor = [ "#6272A4" ];
+        selectedLineBgColor = [ "#6272A4" ];
+        inactiveViewSelectedLineBgColor = [ "bold" ];
+        cherryPickedCommitFgColor = [ "#6272A4" ];
+        cherryPickedCommitBgColor = [ "#8BE9FD" ];
+        markedBaseCommitFgColor = [ "#8BE9FD" ];
+        markedBaseCommitBgColor = [ "#F1FA8C" ];
+        unstagedChangesColor = [ "#FF5555" ];
+        defaultFgColor = [ "#F8F8F2" ];
       };
     };
   };

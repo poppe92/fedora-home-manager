@@ -83,6 +83,12 @@ DNS=8.8.8.8 8.8.4.4
 sudo hostnamectl set-hostname "jesper-fedora"
 ```
 
+### Set crypto policy to legacy for Older SSH-RSA connections
+
+```sh
+sudo update-crypto-policies --set DEFAULT
+```
+
 ### Update Zen Browser to not blur text
 
 Change these setting values in `about:config`:
