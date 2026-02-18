@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixgl, ... }:
 
 {
   imports = [
@@ -8,6 +8,7 @@
     ./modules/eza.nix
     ./modules/zoxide.nix
 #    ./modules/neovim/neovim.nix
+    ./modules/ghostty.nix
 
     ## Linux Specific Modules
     ./modules/rofi.nix

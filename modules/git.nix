@@ -5,10 +5,11 @@
 }: {
   programs.git = {
     enable = true;
-    userEmail = "jesper.nilsson@omegapoint.se";
-    userName = "Jesper N";
 
-    extraConfig = {
+    settings = {
+      user.email = "jesper.nilsson@omegapoint.se";
+      user.name = "Jesper N";
+
       push = {
         default = "current";
         autoSetupRemote = true;
@@ -24,16 +25,6 @@
       };
       status = {
         relativePaths = false;
-      };
-    };
-
-    delta = {
-      enable = true;
-      options = {
-        whitespace-error-style = "22 reverse";
-        side-by-side = true;
-        navigate = true;
-        line-numbers = true;
       };
     };
 

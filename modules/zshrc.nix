@@ -14,7 +14,7 @@
       vim = "nvim";
       nvim-tc = "NVIM_APPNAME=\"nvim-typecraft\" nvim";
       recursiveDiskUsage = "du -aBM 2>/dev/null | sort -nr | head -n 50 | more";
-      # idea = "${pkgs.jetbrains.idea-ultimate}/idea-ultimate/bin/idea.sh \"$1\" > /dev/null 2>&1 &";
+      idea = "~/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea";
     };
     oh-my-zsh = {
       enable = true;
