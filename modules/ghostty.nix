@@ -12,6 +12,8 @@
       theme = "Dracula";
       background-opacity = "0.95";
       font-family = "JetBrains Mono";
+      working-directory = "home";
+      window-inherit-working-directory = false;
     };
   };
 }

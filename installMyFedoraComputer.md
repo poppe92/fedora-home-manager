@@ -10,14 +10,59 @@ note that config-manager needs `dnf4` so the add-repo command is:
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo dnf4 config-manager --add-repo https://packages.microsoft.com/yumrepos/microsoft-rhel9.0-prod
-sudo dnf install --releasever=41 java-11-openjdk 
 ```
 
-After that you need to run this to install java-11-openjdk (its not supported after fedora 41)
+A limitaion with Intune Portal is that it required openjdk for its java home variable.
+This package is depricated in fedora 42 and `temurin-11-jdk` should instead be used.
 
-`sudo dnf install --releasever=41 java-11-openjdk`
+see this Page for instructions on adding Adoptium Temurin Repo:
+[Fedora Discussion Forum](https://discussion.fedoraproject.org/t/old-java-lts-versions-unavailable-on-f42/148870)
 
-Then you can install the intune-portal
+This shell command can be run aswell:
+
+```sh
+cat <<EOF | sudo tee /etc/yum.repos.d/adoptium.repo                                                                                     1 ↵ jesper@fedora
+[Adoptium]
+name=Adoptium
+baseurl=https://packages.adoptium.net/artifactory/rpm/fedora/\$releasever/\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
+EOF
+[Adoptium]
+name=Adoptium
+baseurl=https://packages.adoptium.net/artifactory/rpm/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
+
+sudo dnf install temurin-11-jdk
+```
+
+Also see this Github issue:
+[Intune for Fedora 42](https://github.com/microsoft/shell-intune-samples/issues/200)
+
+After that, the systemctl function to edit the java home variable:
+
+```sh
+systemctl --user edit microsoft-identity-broker.service
+```
+
+At the top of that system.d service, add this:
+
+```sh
+### Editing /home/jesper/.config/systemd/user/microsoft-identity-broker.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+# # Point to JDK 11 until the Linux Broker is upgraded to JDK 17.
+Environment="JAVA_HOME=/usr/lib/jvm/temurin-11-jdk"
+
+### Edits below this comment will be discarded
+
+```
+
+Then you can install the intune-portal, i belive, if its the first time installing, then i dont know how that
+override works and you might need to figure that part out.
 
 `sudo dnf install intune-portal`
 
