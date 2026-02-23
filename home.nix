@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/git.nix
+    ./modules/delta.nix
     ./modules/fzf.nix
     ./modules/zshrc.nix
     ./modules/eza.nix
