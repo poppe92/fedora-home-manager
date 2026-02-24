@@ -21,7 +21,7 @@ see this Page for instructions on adding Adoptium Temurin Repo:
 This shell command can be run aswell:
 
 ```sh
-cat <<EOF | sudo tee /etc/yum.repos.d/adoptium.repo                                                                                     1 ↵ jesper@fedora
+cat <<EOF | sudo tee /etc/yum.repos.d/adoptium.repo
 [Adoptium]
 name=Adoptium
 baseurl=https://packages.adoptium.net/artifactory/rpm/fedora/\$releasever/\$basearch
@@ -29,23 +29,20 @@ enabled=1
 gpgcheck=1
 gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
 EOF
-[Adoptium]
-name=Adoptium
-baseurl=https://packages.adoptium.net/artifactory/rpm/fedora/$releasever/$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
-
 sudo dnf install temurin-11-jdk
 ```
 
 Also see this Github issue:
 [Intune for Fedora 42](https://github.com/microsoft/shell-intune-samples/issues/200)
+And this github guide for Fedora 43
+[Intune Fedora 43](https://github.com/paasimar/intune-fedora43)
 
-After that, the systemctl function to edit the java home variable:
+After that, the systemctl function to edit the java home variable, for both
+user and system:
 
 ```sh
 systemctl --user edit microsoft-identity-broker.service
+sudo systemctl edit microsoft-identity-device-broker.service
 ```
 
 At the top of that system.d service, add this:
@@ -54,18 +51,17 @@ At the top of that system.d service, add this:
 ### Editing /home/jesper/.config/systemd/user/microsoft-identity-broker.service.d/override.conf
 ### Anything between here and the comment below will become the contents of the drop-in file
 
-# # Point to JDK 11 until the Linux Broker is upgraded to JDK 17.
+# Point to Temurin 11 until the Linux Broker is upgraded to JDK 17.
 Environment="JAVA_HOME=/usr/lib/jvm/temurin-11-jdk"
 
 ### Edits below this comment will be discarded
-
 ```
 
-Then you can install the intune-portal, i belive, if its the first time installing, then i dont know how that
-override works and you might need to figure that part out.
+Then you can install the intune-portal, i belive, if its the first time
+installing, then i dont know how that override works and you might
+need to figure that part out.
 
 `sudo dnf install intune-portal`
-
 
 ### Fix Sound 9i Pro
 
