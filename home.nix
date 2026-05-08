@@ -175,7 +175,7 @@
     #DISPLAY="${DISPLAY:-$(grep -Po '(?<=nameserver ).*' /etc/resolv.conf):0}";
     QUARKUS_PROFILE="dev";
     NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1;
-    PATH="/home/jesper/.opencode/bin:$PATH";
+    PATH="/home/jesper/.npm-global/bin:/home/jesper/.opencode/bin:$PATH";
   };
 
   programs.direnv = {
