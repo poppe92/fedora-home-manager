@@ -15,6 +15,7 @@
       nvim-tc = "NVIM_APPNAME=\"nvim-typecraft\" nvim";
       recursiveDiskUsage = "du -aBM 2>/dev/null | sort -nr | head -n 50 | more";
       idea = "~/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea";
+      nfsResetDbDocker = "docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml up -d && docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml down && docker volume rm nfs-service_postgres-data && docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml up -d";
     };
     oh-my-zsh = {
       enable = true;
