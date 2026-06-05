@@ -14,6 +14,7 @@
       font-family = "JetBrains Mono";
       working-directory = "home";
       window-inherit-working-directory = false;
+      tab-inherit-working-directory = false;
     };
   };
 }
