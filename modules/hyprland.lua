@@ -66,6 +66,8 @@ hl.on("hyprland.start", function()
 	hl.dispatch(hl.dsp.exec_cmd("hypridle"))
 	hl.dispatch(hl.dsp.exec_cmd("nm-applet"))
 	hl.dispatch(hl.dsp.exec_cmd("lxpolkit"))
+	hl.dispatch(hl.dsp.exec_cmd("/usr/lib/kdeconnectd"))
+	hl.dispatch(hl.dsp.exec_cmd("kdeconnect-indicator"))
 	hl.dispatch(
 		hl.dsp.exec_cmd("systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	)
