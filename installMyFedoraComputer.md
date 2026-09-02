@@ -81,8 +81,7 @@ sudo dnf install magic-wormhole golang
 sudo dnf copr enable scottames/ghostty
 sudo dnf install ghostty
 sudo dnf install powertop
-sudo dnf copr enable sunwire/envycontrol
-sudo dnf install python3-envycontrol
+
 flatpak install com.usebruno.Bruno 
 flatpak install flathub com.spotify.Client
 flatpak install slack
@@ -108,6 +107,9 @@ sudo dnf install code
 
 ```sh
 wget https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
+sudo dnf install ./dbeaver-ce-latest-stable.x86_64.rpm
+```
+
 sudo dnf install ./dbeaver-ce-latest-stable.x86_64.rpm
 ```
 
@@ -272,17 +274,16 @@ cd clipsync
 
 This is then exec-once'd in Hyprland.conf
 
-### Intellij
+### Toolbox (Jetbrains)
 
-Download the .tar.gz file from `https://www.jetbrains.com/idea/download/`
-`sudo tar -xzf ideaIU-*.tar.gz -C /opt`
-`./opt/bin/{path}/idea.sh`
+Download the .tar.gz file from
+`https://www.jetbrains.com/toolbox-app/`
 
+```sh
+tar -xvzf jetbrains-toolbox-3.7.2.87231.tar.gz --directory="/home/jesper/.local/share/JetBrains/Toolbox/bin" --strip-components=2`
+```
 
-Toolbox
 installed desktopfiles end up in `~/.local/share/applications/toolbox.desktop`
-
-
 
 ### Teams
 
@@ -343,20 +344,10 @@ az install bicep
 Go to this page and get the rpm file:
 `https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1420`
 
+
 ### Hyprland Polkit
 
-To get a graphical polycykit authentication agent to work in hyprland, follow this guide:
+To get a graphical polycykit authentication agent to work in hyprland, follow this guide: 
 `https://elvinguti.dev/posts/fix-missing-polkit/`
 
 The exec-once is already added in my hyprland config file.
-
-### Setup Power with Envycontrol
-
-Run `sudo envycontrol -s <MODE>` to switch graphics modes
-
-Set graphics mode to hybrid and enable fine-grained power control:
-
-```sh
-sudo envycontrol -s hybrid --rtd3
-```
-

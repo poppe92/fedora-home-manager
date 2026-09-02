@@ -18,6 +18,7 @@
       nfsResetDbDocker = "docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml up -d && docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml down && docker volume rm nfs-service-postgres-data && docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml up -d";
       autosyncResetDbDocker = "docker compose --file $HOME/FRAC/code/fleet-management/autosync-integration/docker-compose.yml up -d && docker compose --file $HOME/FRAC/code/fleet-management/autosync-integration/docker-compose.yml down --volumes && docker compose --file $HOME/FRAC/code/fleet-management/autosync-integration/docker-compose.yml up -d";
       nfsStartLocal = "docker compose --file $HOME/FRAC/code/fleet-management/nfs-service/nfs-service/docker-compose.yml up -d && cd $HOME/FRAC/code/fleet-management/nfs-service && mvn quarkus:dev -pl nfs-service -Dquarkus.profile=local";
+      autosyncStartLocal = "docker compose --file $HOME/FRAC/code/fleet-management/autosync-integration/docker-compose.yml up -d && cd $HOME/FRAC/code/fleet-management/autosync-integration && mvn spring-boot:run -Dspring-boot.run.profiles=localhost -Dspring-boot.run.jvmArguments=\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005\"";
     };
     oh-my-zsh = {
       enable = true;

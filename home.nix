@@ -116,6 +116,7 @@
     # ".screenrc".source = dotfiles/screenrc;
 
     ".config/hypr/hyprland.conf".source = modules/hyprland.conf;
+    ".config/hypr/hyprland.lua".source = modules/hyprland.lua;
     ".config/hyprland-per-window-layout/options.toml".source = modules/hyprland-per-window-layout/options.toml;
     ".local/bin/rofi-drun" = {
       executable = true;
