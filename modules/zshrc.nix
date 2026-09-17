@@ -1,5 +1,6 @@
 { 
   pkgs,
+  desktopShell,
   ... 
 }: {
 
@@ -22,7 +23,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      theme = "af-magic";
+      theme = if desktopShell == "noctalia" then "" else "af-magic";
       plugins = ["git" "mvn" "fzf" ];
     };
     syntaxHighlighting.enable = true;
@@ -33,10 +34,25 @@
     initContent = ''
       export PATH="$HOME/.local/bin:$PATH"
 
-      # ---------------------
-      # eza universal Dracula
-      # ---------------------
-      export EZA_COLORS="\
+      # The Noctalia profile uses Ghostty's Eldritch ANSI palette. Legacy retains
+      # its current Dracula-oriented category mapping.
+      export EZA_COLORS="${if desktopShell == "noctalia" then ''\
+        uu=36:\
+        uR=31:\
+        un=35:\
+        gu=37:\
+        da=2;34:\
+        ur=34:\
+        uw=95:\
+        ux=32:\
+        ue=32:\
+        gr=34:\
+        gw=35:\
+        gx=36:\
+        tr=34:\
+        tw=35:\
+        tx=36:\
+        xx=95:'' else ''\
         uu=36:\
         uR=31:\
         un=35:\
@@ -52,7 +68,7 @@
         tr=34:\
         tw=35:\
         tx=36:\
-        xx=95:"
+        xx=95:''}"
 
       bindkey '^ ' autosuggest-accept
 
@@ -236,6 +252,11 @@
 
       fortune | cowsay | lolcat
     '';
+  };
+
+  programs.starship = {
+    enable = desktopShell == "noctalia";
+    enableZshIntegration = true;
   };
 
 }

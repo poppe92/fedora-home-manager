@@ -1,6 +1,10 @@
-{ config, lib, pkgs, nixgl, ... }:
+{ config, lib, pkgs, nixgl, inputs, ... }:
 
-{
+let
+  # Change this to "noctalia" to evaluate Noctalia after applying the legacy
+  # cleanup generation. "legacy" remains the known-good rollback profile.
+  desktopShell = "noctalia";
+in {
   imports = [
     ./modules/git.nix
     ./modules/delta.nix
@@ -15,10 +19,10 @@
     ./modules/rofi.nix
 
     ## Hyprland things (Not working atm)
-    ./modules/hyprlock.nix
     #./modules/hyprland.nix
-    #./modules/hyprlock.nix
   ];
+
+  _module.args.desktopShell = desktopShell;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -105,18 +109,20 @@
     waypaper
     hyprshot
 
+  ] ++ lib.optionals (desktopShell == "noctalia") [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
+  home.file = lib.mkMerge [ {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".config/hypr/hyprland.conf".source = modules/hyprland.conf;
     ".config/hypr/hyprland.lua".source = modules/hyprland.lua;
+    ".config/hypr/shell-profile.lua".text = ''return "${desktopShell}"'';
     ".config/hyprland-per-window-layout/options.toml".source = modules/hyprland-per-window-layout/options.toml;
     ".local/bin/rofi-drun" = {
       executable = true;
@@ -132,7 +138,7 @@
         exec rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | wl-copy"
        '';
     };
-    #".config/hypr/hyprlock.conf".source = modules/hyprlock.conf;
+    ".config/hypr/hyprlock.conf".source = modules/hyprlock.conf;
     ".config/hypr/hypridle.conf".source = modules/hypridle.conf;
 
     ".config/wlogout".source = modules/wlogout;
@@ -152,7 +158,11 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-  };
+  } (lib.mkIf (desktopShell == "noctalia") {
+    ".config/noctalia/config.toml".source = modules/noctalia/config.toml;
+    ".config/noctalia/templates/ghostty".source = modules/noctalia/ghostty.template;
+    ".config/noctalia/templates/starship.toml".source = modules/noctalia/starship.template;
+  }) ];
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

@@ -3,6 +3,13 @@
   # A helpful description of your flake
   description = "Flake for Fedora Home Manager";
 
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   # Flake inputs
   inputs = {
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/*";
@@ -14,10 +21,14 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Keep Noctalia on the latest upstream revision with an available binary
+    # cache. It intentionally uses its own nixpkgs input for cache hits.
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
   };
 
   # Flake outputs that other flakes can use
-  outputs = { self, flake-schemas, nixpkgs, home-manager }:
+  outputs = inputs@{ self, flake-schemas, nixpkgs, home-manager, noctalia }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -25,6 +36,7 @@
     homeConfigurations = {
       "jesper" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
         modules = [ ./home.nix ]; 
       };
     };

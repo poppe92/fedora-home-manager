@@ -1,5 +1,6 @@
 {
   pkgs,
+  desktopShell,
   ...
 }: 
 let
@@ -12,7 +13,20 @@ in
 
     defaultCommand = agCommand;
 
-    colors = {
+    colors = if desktopShell == "noctalia" then {
+      fg = "#ebfafa";
+      bg = "#212337";
+      hl = "#7081d0";
+      "fg+" = "#ffffff";
+      "bg+" = "#292e42";
+      "hl+" = "#a48cf2";
+      info = "#04d1f9";
+      prompt = "#37f499";
+      pointer = "#37f499";
+      marker = "#e9f941";
+      spinner = "#04d1f9";
+      header = "#9071f4";
+    } else {
       fg = "#dedede";
       bg = "#121212";
       hl ="#666666";
@@ -39,4 +53,3 @@ in
 
   };
 }
-

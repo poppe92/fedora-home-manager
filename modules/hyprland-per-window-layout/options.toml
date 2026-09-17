@@ -9,7 +9,7 @@ keyboards = [
 [[default_layouts]]
 1 = [
   "jetbrains-idea",
-  "kitty",
+  "ghostty",
   "code",
   "jetbrains-studio",
 ]

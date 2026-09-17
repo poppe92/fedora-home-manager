@@ -1,0 +1,24 @@
+# Initial Noctalia profile. It deliberately keeps wallpaper, locking, idle,
+# polkit, and session applets under the existing Hyprland/Fedora setup.
+
+[theme]
+mode = "dark"
+source = "builtin"
+builtin = "Eldritch"
+
+[theme.templates]
+enable_builtin_templates = false
+
+[theme.templates.user.ghostty]
+input_path = "templates/ghostty"
+output_path = "$XDG_CONFIG_HOME/ghostty/themes/noctalia"
+
+[theme.templates.user.starship]
+input_path = "templates/starship.toml"
+output_path = "$XDG_CONFIG_HOME/starship.toml"
+
+[bar.main]
+position = "top"
+
+[wallpaper]
+enabled = false
