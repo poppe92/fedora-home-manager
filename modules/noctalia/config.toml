@@ -22,3 +22,8 @@ position = "top"
 
 [wallpaper]
 enabled = false
+
+[lockscreen]
+# The Nix package cannot load Fedora's complete PAM login stack. Keep Hyprlock
+# as the tested Fedora-compatible locker during Noctalia evaluation.
+enabled = false

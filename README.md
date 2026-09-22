@@ -61,6 +61,12 @@ Hyprlock, Hypridle, swww/Waypaper, cliphist's watcher, `nm-applet`,
 `blueman-applet`, KDE Connect, the existing polkit agent, application startup,
 and all Hyprland window-management bindings.
 
+Noctalia's lock screen is disabled for this Fedora/Nix test profile. Its Nix
+PAM runtime cannot load every module referenced by Fedora's `login` PAM stack,
+which can reject a valid account password. Lock with `SUPER+SHIFT+X` or let
+Hypridle time out; both use the existing Fedora-compatible Hyprlock setup. Do
+not use Noctalia's Lock or Lock and Suspend session actions while testing.
+
 ### Noctalia Theme Testing
 
 The tracked Noctalia profile uses the built-in dark `Eldritch` palette. It
