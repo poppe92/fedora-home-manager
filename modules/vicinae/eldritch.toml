@@ -1,0 +1,82 @@
+# Opaque Vicinae adaptation of Noctalia's Eldritch (Cthulhu) palette.
+# Use six-digit hex colors throughout so these surfaces have no alpha channel.
+
+[meta]
+version = 1
+name = "Eldritch"
+description = "Opaque Eldritch theme matching Noctalia's Cthulhu palette"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+background = "#212337"
+foreground = "#ebfafa"
+secondary_background = "#292e42"
+border = "#3b4261"
+accent = "#37f499"
+accent_foreground = "#171928"
+
+[colors.main_window]
+border = "#3b4261"
+footer = { background = "#292e42" }
+
+[colors.settings_window]
+border = "#3b4261"
+
+[colors.accents]
+blue = "#04d1f9"
+green = "#37f499"
+magenta = "#f265b5"
+orange = "#f7c67f"
+red = "#f16c75"
+yellow = "#f1fc79"
+cyan = "#04d1f9"
+purple = "#a48cf2"
+
+[colors.shortcut]
+border = "#3b4261"
+
+[colors.text]
+default = "#ebfafa"
+muted = "#abb4da"
+danger = "#f16c75"
+success = "#37f499"
+placeholder = "#7081d0"
+selection = { background = "#37f499", foreground = "#171928" }
+
+[colors.text.links]
+default = "#04d1f9"
+visited = "#a48cf2"
+
+[colors.input]
+border = "#3b4261"
+border_focus = "#37f499"
+border_error = "#f16c75"
+
+[colors.button.primary]
+background = "#323449"
+foreground = "#ebfafa"
+hover = { background = "#454759" }
+focus = { outline = "#37f499" }
+
+[colors.list.item.hover]
+foreground = "#ebfafa"
+secondary_foreground = "#abb4da"
+
+[colors.list.item.selection]
+background = "#323449"
+foreground = "#ebfafa"
+secondary_background = "#323449"
+secondary_foreground = "#abb4da"
+
+[colors.grid.item]
+background = "#292e42"
+hover = { outline = "#04d1f9" }
+selection = { outline = "#37f499" }
+
+[colors.scrollbars]
+background = "#3b4261"
+
+[colors.loading]
+bar = "#37f499"
+spinner = "#04d1f9"

@@ -375,6 +375,21 @@ hl.window_rule({
 	monitor = "current",
 })
 
+-- Vicinae blur
+hl.layer_rule({
+	match = { namespace = "vicinae" },
+	name = "vicinae-blur",
+	blur = false,
+	ignore_alpha = 0,
+})
+
+-- Vicinae disable animation for vicinae only
+hl.layer_rule({
+	match = { namespace = "vicinae" },
+	name = "vicinae-no-animation",
+	no_anim = true,
+})
+
 -- See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
 local mainMod = "SUPER"
@@ -423,6 +438,8 @@ else
 	hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -d intel_backlight set +5%"))
 	hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -d intel_backlight set 5%-"))
 end
+
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "D", hl.dsp.exec_cmd("vicinae toggle"))
 
 hl.bind(mainMod .. " + " .. "P", hl.dsp.window.pseudo())
 
@@ -595,10 +612,7 @@ hl.bind(mainMod .. " + " .. "CTRL + SHIFT" .. " + " .. 0, hl.dsp.window.move({ w
 
 -- Example special workspace (scratchpad)
 
-hl.bind(
-	"CTRL + SHIFT + Space",
-	hl.dsp.exec_cmd("hyprctl switchxkblayout keychron-keychron-q10-max next")
-)
+hl.bind("CTRL + SHIFT + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout keychron-keychron-q10-max next"))
 
 hl.bind(mainMod .. " + " .. "Space", hl.dsp.workspace.toggle_special("magic"))
 
@@ -618,6 +632,7 @@ hl.bind(mainMod .. " + " .. "mouse:273", hl.dsp.window.resize(), { mouse = true 
 
 -- Autostart
 hl.on("hyprland.start", function()
+	hl.exec_cmd("vicinae server")
 	hl.exec_cmd("swww-daemon --format xrgb")
 	if desktopShell == "noctalia" then
 		hl.exec_cmd(HOME .. "/.nix-profile/bin/noctalia --daemon")

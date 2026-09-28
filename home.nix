@@ -123,6 +123,8 @@ in {
 
     ".config/hypr/hyprland.lua".source = modules/hyprland.lua;
     ".config/hypr/shell-profile.lua".text = ''return "${desktopShell}"'';
+    ".config/vicinae/settings-managed.json".source = modules/vicinae/settings.json;
+    ".local/share/vicinae/themes/eldritch.toml".source = modules/vicinae/eldritch.toml;
     ".config/hyprland-per-window-layout/options.toml".source = modules/hyprland-per-window-layout/options.toml;
     ".local/bin/rofi-drun" = {
       executable = true;
@@ -163,6 +165,17 @@ in {
     ".config/noctalia/templates/ghostty".source = modules/noctalia/ghostty.template;
     ".config/noctalia/templates/starship.toml".source = modules/noctalia/starship.template;
   }) ];
+
+  # Keep Vicinae's main settings file writable for GUI changes. The managed
+  # file is imported so declarative settings can be tracked in this repository.
+  home.activation.vicinaeSettings = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    vicinae_config_dir="${config.xdg.configHome}/vicinae"
+    vicinae_settings="$vicinae_config_dir/settings.json"
+    if [ ! -e "$vicinae_settings" ]; then
+      mkdir -p "$vicinae_config_dir"
+      printf '%s\n' '{ "imports": ["settings-managed.json"] }' > "$vicinae_settings"
+    fi
+  '';
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

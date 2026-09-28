@@ -20,6 +20,12 @@ output_path = "$XDG_CONFIG_HOME/starship.toml"
 [bar.main]
 position = "top"
 
+[shell.launcher.providers.calculator]
+# Evaluate arithmetic and unit/currency conversions directly in the launcher;
+# keep the explicit /calc route available as well.
+prefix = "calc"
+global = true
+
 [wallpaper]
 enabled = false
 

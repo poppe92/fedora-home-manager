@@ -1,0 +1,12 @@
+{
+  "theme": {
+    "dark": {
+      "name": "eldritch",
+      "icon_theme": "auto"
+    }
+  },
+  "launcher_window": {
+    "opacity": 1.0,
+    "material": "none"
+  }
+}
