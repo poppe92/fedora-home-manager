@@ -121,6 +121,14 @@ in {
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
+    # Keep OpenCode rules and agent sources writable in this checkout.
+    ".config/opencode/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "/home/jesper/git/fedora-home-manager/AGENTS.md";
+    ".config/opencode/SUBAGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "/home/jesper/git/fedora-home-manager/SUBAGENTS.md";
+    ".config/opencode/agents/build.md".source = config.lib.file.mkOutOfStoreSymlink "/home/jesper/git/fedora-home-manager/modules/opencode/agents/build.md";
+    ".config/opencode/agents/general.md".source = config.lib.file.mkOutOfStoreSymlink "/home/jesper/git/fedora-home-manager/modules/opencode/agents/general.md";
+    ".config/opencode/agents/explore.md".source = config.lib.file.mkOutOfStoreSymlink "/home/jesper/git/fedora-home-manager/modules/opencode/agents/explore.md";
+    ".config/opencode/agents/review.md".source = config.lib.file.mkOutOfStoreSymlink "/home/jesper/git/fedora-home-manager/modules/opencode/agents/review.md";
+
     ".config/hypr/hyprland.lua".source = modules/hyprland.lua;
     ".config/hypr/shell-profile.lua".text = ''return "${desktopShell}"'';
     ".config/vicinae/settings-managed.json".source = modules/vicinae/settings.json;
