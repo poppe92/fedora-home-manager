@@ -3,7 +3,7 @@
 ## Provisional default roles
 
 - **build — GPT 6.1 Sol primary lead:** plan, delegate, debug, verify, and integrate.
-- **general — GPT 6.1 Sol worker subagent:** implement and test bounded assignments.
+- **general — GPT 6 Luna worker subagent:** implement and test bounded assignments.
 - **explore — GPT 6 Luna read-only subagent:** locate paths, trace behavior, identify reusable
   patterns, and inspect callers, tests, and evidence.
 - **review — Claude Opus 5.5 read-only independent reviewer/design challenger:** assess
@@ -14,9 +14,11 @@ actual quality, latency, and cost. Do not spawn all three for trivial tasks.
 
 ## Approval and assignment contract
 
-Inherited shared AGENTS.md rules and applicable project AGENTS.md rules apply
-to every agent. Read /home/jesper/.config/opencode/SUBAGENTS.md and any applicable
-project-specific SUBAGENTS.md; pass their relevant rules with the assignment.
+Global rules apply to every agent. Read only these exact instruction paths:
+/home/jesper/.config/opencode/AGENTS.md and
+/home/jesper/.config/opencode/SUBAGENTS.md. Do not glob or search projects,
+parent directories, the home directory, or / for instruction files. No per-repo
+instruction files are required. Pass relevant global rules with the assignment.
 The primary agent obtains user approval before work as required by AGENTS.md.
 Subagents execute an already-approved, bounded
 assignment; return to the lead for scope changes.
@@ -54,11 +56,11 @@ Explicit model routing is configured in `modules/opencode/agents/{build,general,
 for deployment under ~/.config/opencode/agents/. Use these exact
 agent names when delegating: explore for discovery, general for implementation,
 and review for independent review. The configured provider/model IDs are
-github-copilot/gpt-6.1-sol for build/general, github-copilot/gpt-6-luna for
-explore, and github-copilot/claude-opus-5.5 for review. Do not claim this session
+github-copilot/gpt-6.1-sol for build, github-copilot/gpt-6-luna for
+general/explore, and github-copilot/claude-opus-5.5 for review. Do not claim this session
 uses all requested models unless their actual use is verified.
 
 AGENTS.md and SUBAGENTS.md at the repository root are the version-controlled
-global sources; deployment links the global paths to them. Keep shared rules and general
-lessons there rather than duplicating them in projects. Project-specific
-instructions and lessons belong in the project's own instruction files.
+global sources; deployment links the global paths to them. Keep rules and all
+lessons there rather than duplicating them in projects. Include project context
+in global lessons when needed; do not create per-repo instruction files.

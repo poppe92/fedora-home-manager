@@ -99,3 +99,80 @@ OpenCode session to pick up these definitions.
 The checkout path must remain /home/jesper/git/fedora-home-manager. Do not put
 existing OpenCode credentials in this repository. Two failures on a step mean
 stop, record evidence, and re-plan. Restart OpenCode after deployment.
+
+## Follow-up: Luna implementation worker (approved 2026-10-08)
+
+Scope: set general to github-copilot/gpt-6-luna and synchronize SUBAGENTS.md.
+Keep Sol as build lead, Luna as explore, Opus as review, and all permissions
+unchanged. No unrelated configuration changes or Home Manager switch.
+
+1. Inspect live configuration and applicable instructions; back up general.md,
+   SUBAGENTS.md, and PLAN.md. Proof: clean initial git status, working global
+   links, current general resolves to Sol, and backup comparisons pass.
+   Status: complete; backups are /tmp/opencode/{general,SUBAGENTS,PLAN}-before-luna-20261008.md.
+2. Change only general's model and matching role/model descriptions.
+   Proof: inspect diff and compare unchanged permissions and other model routes.
+   Status: complete; only general's model and SUBAGENTS.md's two matching
+   descriptions changed. Agent permissions and other routes are untouched.
+3. Verify fresh resolved configuration; run a build-to-general smoke task that
+   implements and tests a tiny Python helper only in a new /tmp/opencode sandbox.
+   Proof: inspect implementation/test output and exported child session metadata
+   showing actual general inference on github-copilot/gpt-6-luna. Obtain read-only
+   independent review and run git diff --check. No runtime claim from defaults.
+   Status: complete; fresh debug resolves general to github-copilot/gpt-6-luna.
+   Second smoke attempt passed; lead read both sandbox files and independently
+   reran all 5 tests successfully. Exported child session
+   ses_ee465af53ffes3GOEeuBpTHlC1 proves actual general/github-copilot/gpt-6-luna
+   assistant use. This verifies routing, not comparative implementation quality.
+   Independent review found no routing mismatch; backup access was denied for
+   reviewer, so lead compared general against its backup and confirmed only the
+   model changed. Review session ses_ee466d723ffe3Z0twDBEVeZOxW export confirms
+   actual review/github-copilot/claude-opus-5.5 use. Original plan sections remain
+   historical; this approved follow-up supersedes their worker assignment.
+   git diff --check passed. No Home Manager switch or broader tests were run.
+
+   Smoke attempt 1 stopped before delegation: build tried instruction discovery
+   in /tmp and /, outside approved directory access; noninteractive CLI rejected
+   those glob calls. Shared instruction reads succeeded. Retry with explicit
+   applicable instruction paths and no parent-directory globbing; no permission
+   changes. If this second attempt fails, stop and re-plan.
+
+Quit and restart OpenCode after this change; the current session remains cached.
+
+## Follow-up: global-only instruction discovery (approved 2026-10-09)
+
+Scope: stop agent-requested project/ancestor instruction searches. Use only
+/home/jesper/.config/opencode/AGENTS.md and SUBAGENTS.md in all four agents.
+Preserve model routes, permissions, existing uncommitted work, and historical
+plan entries. Do not change OpenCode's built-in project instruction loader.
+
+1. Inspect all agent prompts, shared rules, and live deployment links; back up
+   all edited files. Proof: identify discovery wording and confirm live links
+   resolve to this checkout. Status: complete; all four agents request project
+   instructions, and all six live links resolve to these source files. Backups
+   are /tmp/opencode/*-before-global-only-20261009.md.
+2. Replace discovery wording with the two exact global paths; synchronize shared
+   delegation/lesson rules and record the user's correction under Lessons.
+   Proof: inspect diffs, verify no project instruction discovery remains in
+   active rules, and compare unchanged frontmatter against backups.
+   Status: complete; all six active instruction sources now specify global-only
+   discovery, and lesson routing is centralized. Existing Luna model changes
+   are preserved.
+3. Obtain independent read-only review and verify live file contents plus
+   whitespace. Proof: review report, exact-path assertions, unchanged model and
+   permission checks, and git diff --check. If feasible, run a fresh-session
+   smoke test and inspect actual tool calls; otherwise explicitly report that
+   runtime behavior is unverified. No Home Manager switch is needed.
+   Status: complete; independent read-only review found no blocking issues.
+   Backup diffs confirm unchanged frontmatter/models/permissions, all six live
+   files match their sources, and git diff --check passed. Fresh CLI build
+   session ses_edf483f76ffeGv11znDJMkm9M9 in /tmp/opencode completed startup
+   loading with exactly two Read calls to the global paths and no Glob calls.
+   This verifies the observed lead behavior, not a guarantee for every model
+   or project. No fresh work-repo or child-agent smoke tests were run; review's
+   actual provider/model use was unverified. No full Home Manager tests/switch.
+
+OpenCode's documented automatic loading of existing local AGENTS.md/CLAUDE.md
+is separate from model-issued Glob calls; this bounded prompt change does not
+disable that loader. Two failures on a step mean stop and re-plan. Restart
+OpenCode after these configuration-time prompt changes.
